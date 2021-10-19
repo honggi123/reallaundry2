@@ -48,7 +48,7 @@
         <activity android:name=".EditLink" />
         <activity android:name=".EnrollExercise" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:configChanges="orientation"
             android:exported="true">
             <intent-filter>
@@ -58,13 +58,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".record" />
-        <activity
-            android:name=".Enroll"
-            android:configChanges="orientation"
-            android:parentActivityName=".MainActivity" />
         <activity android:name=".TodayEyeBody" />
         <activity android:name=".TodayExercise" />
         <activity android:name=".TodayDiet" />
+        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".Enroll"></activity>
     </application>
 
 </manifest>
