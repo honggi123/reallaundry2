@@ -108,52 +108,9 @@
                             android:id="@+id/radiogroupmain"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal">
-
-                            <RadioButton
-                                android:id="@+id/legCheck"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="30dp"
-                                android:text="하의 "
-                                android:textColor="@color/black" />
-
-                            <RadioButton
-                                android:id="@+id/muscleCheck"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="신발"
-                                android:textColor="@color/black" />
-
-                        </RadioGroup>
+                            android:orientation="horizontal"/>
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/Linkenroll"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginBottom="8dp"
-                        android:text="세탁소명" />
-
-                    <EditText
-                        android:id="@+id/editLink"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="40dp"
-                        android:hint="     세탁소명을 등록하세요      "
-                        android:inputType="textUri" />
-
-
-                    <Button
-                        android:id="@+id/but_enroll"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="15dp"
-                        android:text=" + 추가하기"
-                        android:textColor="@color/white"
-                        app:backgroundTint="#078C80" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/link_rv"
