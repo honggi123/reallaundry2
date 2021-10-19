@@ -16,41 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center">
-
-    <ImageButton
-        android:id="@+id/arm"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/arm"
-        android:padding="10dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintHorizontal_weight="1"
-        />
-
-    <ImageButton
-
-        app:layout_constraintHorizontal_weight="1"
-        android:id="@+id/leg"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:srcCompat="@drawable/leg2"
-        android:scaleType="centerCrop"
-        app:layout_constraintDimensionRatio="1:1"
-        />
-
-    <ImageButton
-
-        app:layout_constraintHorizontal_weight="1"
-        android:id="@+id/muscle"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:srcCompat="@drawable/sixpack"
-        android:scaleType="centerCrop"
-        app:layout_constraintDimensionRatio="1:1"
-        />
-    </LinearLayout>
+        android:layout_gravity="center"/>
 
 <LinearLayout
     android:layout_width="wrap_content"

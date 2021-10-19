@@ -26,12 +26,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
         android:layout_marginBottom="20dp"
-        android:text="@string/StartDay"
+        android:text="ID"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/enroll"
         app:layout_constraintBottom_toTopOf="@id/Height"
         app:layout_constraintRight_toLeftOf="@id/editStartDay"
-        tools:layout_editor_absoluteX="35dp" />
+        app:layout_constraintTop_toBottomOf="@+id/enroll" />
 
     <EditText
         android:id="@+id/editStartDay"
