@@ -26,24 +26,24 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
-    <Button
-        android:id="@+id/Routine"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="루틴"
-        android:textColor="@color/white"
-        app:backgroundTint="@color/DarkBlue" />
+        <Button
+            android:id="@+id/Routine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="세탁물종류"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/DarkBlue" />
 
-    <Button
-        android:id="@+id/Link"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_weight="1"
-        android:text="링크"
-        android:textColor="@color/white"
-        app:backgroundTint="@color/LightBlue" />
+        <Button
+            android:id="@+id/Link"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="링크"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/LightBlue" />
 
     </LinearLayout>
 

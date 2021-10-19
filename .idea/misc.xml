@@ -10,14 +10,14 @@
         <entry key="..\:/Users/Arim/AndroidStudioProjects/reallaundry2/app/src/main/res/layout/activity_edit_link.xml" value="0.18" />
         <entry key="..\:/Users/Arim/AndroidStudioProjects/reallaundry2/app/src/main/res/layout/activity_edit_routine.xml" value="0.15" />
         <entry key="..\:/Users/Arim/AndroidStudioProjects/reallaundry2/app/src/main/res/layout/activity_enroll_exercise.xml" value="0.22" />
-        <entry key="..\:/Users/Arim/AndroidStudioProjects/reallaundry2/app/src/main/res/layout/activity_eye_body.xml" value="0.12395833333333334" />
+        <entry key="..\:/Users/Arim/AndroidStudioProjects/reallaundry2/app/src/main/res/layout/activity_eye_body.xml" value="0.22" />
         <entry key="..\:/Users/Arim/AndroidStudioProjects/reallaundry2/app/src/main/res/layout/activity_main.xml" value="0.12395833333333334" />
         <entry key="..\:/Users/Arim/AndroidStudioProjects/reallaundry2/app/src/main/res/layout/activity_select_item.xml" value="0.22" />
-        <entry key="..\:/Users/Arim/AndroidStudioProjects/reallaundry2/app/src/main/res/layout/activity_select_today_ex.xml" value="0.18" />
-        <entry key="..\:/Users/Arim/AndroidStudioProjects/reallaundry2/app/src/main/res/layout/activity_today_diet.xml" value="0.22" />
+        <entry key="..\:/Users/Arim/AndroidStudioProjects/reallaundry2/app/src/main/res/layout/activity_select_today_ex.xml" value="0.25" />
+        <entry key="..\:/Users/Arim/AndroidStudioProjects/reallaundry2/app/src/main/res/layout/activity_today_diet.xml" value="0.33" />
         <entry key="..\:/Users/Arim/AndroidStudioProjects/reallaundry2/app/src/main/res/layout/activity_today_ex_item_link.xml" value="0.22" />
         <entry key="..\:/Users/Arim/AndroidStudioProjects/reallaundry2/app/src/main/res/layout/activity_today_ex_item_routine.xml" value="0.22" />
-        <entry key="..\:/Users/Arim/AndroidStudioProjects/reallaundry2/app/src/main/res/layout/activity_today_exercise.xml" value="0.18" />
+        <entry key="..\:/Users/Arim/AndroidStudioProjects/reallaundry2/app/src/main/res/layout/activity_today_exercise.xml" value="0.22" />
         <entry key="..\:/Users/Arim/AndroidStudioProjects/reallaundry2/app/src/main/res/layout/activity_utube_play.xml" value="0.10416666666666667" />
         <entry key="..\:/Users/Arim/AndroidStudioProjects/reallaundry2/app/src/main/res/layout/activity_youtube.xml" value="0.22" />
         <entry key="..\:/Users/Arim/AndroidStudioProjects/reallaundry2/app/src/main/res/layout/activity_youtube_play.xml" value="0.22" />
@@ -47,10 +47,7 @@
         <entry key="..\:/android studio/example2/app/src/main/res/layout/gridlayout.xml" value="0.35052083333333334" />
         <entry key="..\:/android studio/example2/app/src/main/res/layout/item_utube.xml" value="0.35052083333333334" />
         <entry key="..\:/android studio/example2/app/src/main/res/layout/link_item.xml" value="0.32916666666666666" />
-        <entry key="..\:/android studio/example2/app/src/main/res/layout/login.xml" value="0.35052083333333334" />
         <entry key="..\:/android studio/example2/app/src/main/res/layout/recorddata.xml" value="0.32916666666666666" />
-        <entry key="..\:/android studio/example2/app/src/main/res/layout/register.xml" value="0.35052083333333334" />
-        <entry key="..\:/android studio/example2/app/src/main/res/layout/register_laundryshop_boss.xml" value="0.35052083333333334" />
         <entry key="..\:/android studio/example2/app/src/main/res/layout/routine_item.xml" value="0.32916666666666666" />
       </map>
     </option>
