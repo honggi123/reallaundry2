@@ -28,11 +28,11 @@
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="60dp"
+                    android:layout_width="93dp"
                     android:layout_height="60dp"
+                    android:scaleType="centerCrop"
                     app:layout_constraintDimensionRatio="1:1"
-                    app:srcCompat="@mipmap/ic_launcher"
-                    android:scaleType="centerCrop" />
+                    app:srcCompat="@drawable/hanger" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
