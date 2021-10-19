@@ -12,13 +12,13 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:gravity="center"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:text="운동부위"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"/>
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="세탁물종류"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/mod_whereEx"
@@ -37,13 +37,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView android:gravity="center"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:text="초"
+        <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"/>
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="수거 날짜"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/mod_second"
@@ -61,13 +62,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView android:gravity="center"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:text="세트"
+        <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"/>
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="벌 수"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/mod_set"

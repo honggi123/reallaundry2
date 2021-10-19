@@ -27,10 +27,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10sp"
-        android:text="체중"
-        android:textSize="20sp"
-        android:textColor="@color/darkgray"
         android:layout_marginTop="5dp"
+        android:text="세탁소명"
+        android:textColor="@color/darkgray"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/edittTodayKg"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittTodayKg" />
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20sp"
         android:layout_marginTop="10sp"
-        android:hint="체중을 입력하세요"
+        android:hint="세탁소명을 입력하세요"
         android:inputType="number"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="@+id/TodayWeight"
@@ -55,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5sp"
-        android:text="kg"
+        android:text="세탁소"
         android:textSize="23sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/edittTodayKg"
         app:layout_constraintBottom_toBottomOf="@+id/edittTodayKg"
@@ -66,12 +66,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25sp"
-        android:text="눈바디"
-        android:textSize="20sp"
+        android:text="맡긴 세탁물"
         android:textColor="@color/darkgray"
+        android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="@+id/TodayWeight"
-        app:layout_constraintTop_toBottomOf="@+id/edittTodayKg"
-        tools:layout_editor_absoluteY="253sp" />
+        app:layout_constraintTop_toBottomOf="@+id/edittTodayKg" />
 
     <ImageView
         android:id="@+id/EyeGallery"
@@ -112,11 +111,11 @@
         android:id="@+id/picInbody"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20sp"
-        android:layout_marginBottom="10sp"
-        android:text="인바디"
-        android:textSize="20sp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:text="벌수"
         android:textColor="@color/darkgray"
+        android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/picEyebody"
         app:layout_constraintStart_toEndOf="@+id/plusEyebody" />
 
