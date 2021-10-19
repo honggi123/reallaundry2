@@ -56,15 +56,14 @@
             android:id="@+id/Exercise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="운동 목록"
-            android:textSize="18dp"
-            tools:ignore="MissingConstraints"
-            app:layout_constraintTop_toBottomOf="@id/Datekg"
-            app:layout_constraintLeft_toRightOf="@+id/DateExercise"
-            app:layout_constraintBaseline_toBaselineOf="@+id/DateExercise"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
-             />
+            android:layout_marginTop="15dp"
+            android:hint="세탁물 목록"
+            android:textSize="18dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/DateExercise"
+            app:layout_constraintLeft_toRightOf="@+id/DateExercise"
+            app:layout_constraintTop_toBottomOf="@id/Datekg"
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/BackButton"
