@@ -24,29 +24,26 @@
         android:layout_marginLeft="20dp"/>
 
     <TextView
+        android:id="@+id/showWhere"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="운동부위"
-        android:id="@+id/showWhere"
-        android:textSize="20dp"
-        app:layout_constraintRight_toLeftOf="@+id/showSet"
-        app:layout_constraintBottom_toTopOf="@+id/progressBar"
-        android:layout_marginBottom="10dp"
         android:layout_marginRight="20dp"
-        />
+        android:layout_marginBottom="10dp"
+        android:text="맡긴세탁물"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"
+        app:layout_constraintRight_toLeftOf="@+id/showSet" />
 
     <TextView
+        android:id="@+id/showSet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="세트"
-        android:id="@+id/showSet"
-        android:textSize="20dp"
-        android:layout_marginLeft="30dp"
         android:layout_marginRight="10dp"
-        app:layout_constraintRight_toLeftOf="@+id/ing"
-        app:layout_constraintBottom_toTopOf="@+id/progressBar"
         android:layout_marginBottom="10dp"
-        />
+        android:text="벌"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"
+        app:layout_constraintRight_toLeftOf="@+id/ing" />
 
     <TextView
         android:id="@+id/ing"
