@@ -1,10 +1,12 @@
 package com.example.myapplication;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +32,7 @@ public class RoutineAdapter extends RecyclerView.Adapter<RoutineAdapter.ViewHold
     ArrayList<RoutineItem> RoutineItems;
 
     Context context;
+    int selposition = 0;
 
     public RoutineAdapter(ArrayList<RoutineItem> RoutineItems, Context context) {
         this.RoutineItems = RoutineItems;
@@ -49,8 +52,9 @@ public class RoutineAdapter extends RecyclerView.Adapter<RoutineAdapter.ViewHold
 
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
-    public void onBindViewHolder( @NotNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NotNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         RoutineItem routineItem = RoutineItems.get(position);
         //holder.setItem(routineItem);
 
@@ -64,6 +68,14 @@ public class RoutineAdapter extends RecyclerView.Adapter<RoutineAdapter.ViewHold
 //        String json = gson.toJson(RoutineItems);
 //        Intent intent = new Intent(context,TodayExercise.class);
 //        intent.putExtra("json",json);
+
+
+        if(RoutineItems.get(position).getsel()){
+            holder.view.setBackgroundColor(R.color.Lightgray);
+        }else{
+            holder.view.setBackgroundColor(Color.TRANSPARENT);
+        }
+
 
         holder.delete.setTag(position);
         holder.delete.setOnClickListener(new View.OnClickListener() {
@@ -176,17 +188,36 @@ public class RoutineAdapter extends RecyclerView.Adapter<RoutineAdapter.ViewHold
         private TextView routine_whereEx;
         private TextView routine_second;
         private TextView routine_set;
+        public View view;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            view = itemView;
             routine_whereEx = itemView.findViewById(R.id.routine_whereEx);
             routine_second = itemView.findViewById(R.id.routine_second);
             routine_set = itemView.findViewById(R.id.routine_set);
             delete = itemView.findViewById(R.id.delete);
             edit = itemView.findViewById(R.id.edit);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    for(int i = 0; i<= RoutineItems.size()-1;i++){
+                        RoutineItems.get(i).setSel(false);
+                    }
+                    selposition = getAdapterPosition();
+                    RoutineItems.get(getAdapterPosition()).setSel(true);
+                    notifyDataSetChanged();
+                }
+            });
+
         }
 
 
+    }
+
+    public int getSelposition() {
+        return selposition;
     }
 }

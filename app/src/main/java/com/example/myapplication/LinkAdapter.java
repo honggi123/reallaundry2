@@ -1,9 +1,11 @@
 package com.example.myapplication;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.text.util.Linkify;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,6 +37,7 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.ViewHolder> {
 
     ArrayList<LinkItem> linkItems;
     Context context;
+    int selposition = 0;
 
     public LinkAdapter(ArrayList<LinkItem> linkItems, Context context) {
         this.linkItems = linkItems;
@@ -54,8 +57,9 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.ViewHolder> {
 
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
-    public void onBindViewHolder( @NotNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NotNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         LinkItem linkItem = linkItems.get(position);
         holder.list_WhereEx.setText(linkItem.getList_WhereEx());
         holder.list_Link.setText(linkItem.getList_Link());
@@ -73,6 +77,15 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.ViewHolder> {
 //        };
 //        Pattern pattern = Pattern.compile(linkItem.getList_Link());
 //        Linkify.addLinks(holder.list_Link,pattern,linkItem.getList_Link(),null,transformFilter);
+
+
+
+        if(linkItems.get(position).getsel()){
+            holder.view.setBackgroundColor(R.color.Lightgray);
+        }else{
+            holder.view.setBackgroundColor(Color.TRANSPARENT);
+        }
+
 
         holder.delete.setTag(position);
         holder.delete.setOnClickListener(new View.OnClickListener() {
@@ -231,22 +244,34 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.ViewHolder> {
         private ImageView list_image;
         public View delete;
         public View edit;
+        public View view;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            view = itemView;
+
             list_WhereEx = itemView.findViewById(R.id.list_whereEx);
             list_Link = itemView.findViewById(R.id.list_Link);
             list_image = itemView.findViewById(R.id.imageView);
             delete = itemView.findViewById(R.id.delete);
             edit = itemView.findViewById(R.id.edit);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    for(int i = 0; i<= linkItems.size()-1;i++){
+                        linkItems.get(i).setSel(false);
+                    }
+                    linkItems.get(getAdapterPosition()).setSel(true);
+                    selposition = getAdapterPosition();
+                    notifyDataSetChanged();
+                }
+            });
         }
 
     }
 
-
-
-
-
-
-
+    public int getSelposition() {
+        return selposition;
+    }
 }

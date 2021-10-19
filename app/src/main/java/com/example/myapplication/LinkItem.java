@@ -10,6 +10,7 @@ public class LinkItem{
     private int list_image;
     private String list_WhereEx;
     private String list_Link;
+    private boolean sel;
 
     public LinkItem(String list_WhereEx, String list_Link,int list_image){
         this.list_WhereEx = list_WhereEx;
@@ -17,6 +18,14 @@ public class LinkItem{
         this.list_image = list_image;
     }
 
+
+    public boolean getsel() {
+        return sel;
+    }
+
+    public void setSel(boolean sel) {
+        this.sel = sel;
+    }
 
     public int getList_image() {
         return list_image;

@@ -11,6 +11,7 @@ public class RoutineItem {
     private String routine_WhereEx;
     private String routine_second;
     private String routine_set;
+    private boolean sel = false;
 
     Button delete;
 
@@ -27,6 +28,15 @@ public class RoutineItem {
     public void setroutine_WhereEx(String routine_WhereEx) {
         this.routine_WhereEx = routine_WhereEx;
     }
+
+    public boolean getsel() {
+        return sel;
+    }
+
+    public void setSel(boolean sel) {
+        this.sel = sel;
+    }
+
 
     public String getroutine_second() {
         return routine_second;
