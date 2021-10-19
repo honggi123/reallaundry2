@@ -132,8 +132,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void enroll(View view) {
-      //  Intent intent = new Intent(this, Enroll.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, Enroll.class);
+        startActivity(intent);
     }
 
     public void record(View view) {
