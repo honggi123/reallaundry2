@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/whenDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="선택 날짜"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/Datekg"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/Datekg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="_____"
+            android:hint="몸무게"
+            android:textSize="20dp"
+            app:layout_constraintTop_toBottomOf="@id/whenDate"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="30dp" />
+
+
+        <TextView
+            android:id="@+id/DateExercise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="오늘의 운동"
+            android:textSize="20dp"
+            app:layout_constraintTop_toBottomOf="@id/Datekg"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="30dp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/Exercise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="운동 목록"
+            android:textSize="18dp"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@id/Datekg"
+            app:layout_constraintLeft_toRightOf="@+id/DateExercise"
+            app:layout_constraintBaseline_toBaselineOf="@+id/DateExercise"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+             />
+
+        <Button
+            android:id="@+id/BackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="메인으로"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:backgroundTint="@color/Lightgray"
+            android:textColor="@color/black"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

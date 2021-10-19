@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    tools:context=".TodayDiet">
+
+    <LinearLayout
+        android:id="@id/layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
+
+            <DatePicker
+                android:id="@+id/datePicker"
+                android:layout_width="211dp"
+                android:layout_height="124dp"
+                android:layout_marginBottom="20dp"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"
+                android:scrollbarSize="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/morning"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
+
+            </DatePicker>
+            <Button
+                android:id="@+id/morning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/darkgray"
+                android:text="아침"
+                android:textColor="@color/black"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/noon"
+                app:layout_constraintRight_toRightOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/datePicker" />
+
+            <Button
+                android:id="@+id/noon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/Lightgray"
+                android:text="점심"
+                android:textColor="@color/black"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toRightOf="@+id/morning"
+                app:layout_constraintRight_toLeftOf="@+id/Night"
+                app:layout_constraintTop_toBottomOf="@+id/datePicker" />
+
+            <Button
+                android:id="@+id/Night"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/Lightgray"
+                android:text="저녁"
+                android:textColor="@color/black"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toRightOf="@+id/noon"
+                app:layout_constraintRight_toLeftOf="@+id/snack"
+                app:layout_constraintTop_toBottomOf="@+id/datePicker" />
+
+            <Button
+                android:id="@+id/snack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/Lightgray"
+                android:text="간식"
+                android:textColor="@color/black"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toRightOf="@+id/Night"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/datePicker" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/morning_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@+id/button"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/morning_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:text="시간11"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                tools:layout_editor_absoluteX="29dp"
+                tools:ignore="NotSibling" />
+
+            <EditText
+                android:id="@+id/morning_timenow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="32dp"
+                android:hint="현재 시간"
+                android:inputType="time"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/morning_time"
+                app:layout_constraintLeft_toRightOf="@+id/morning_time"
+                app:layout_constraintBaseline_toBaselineOf="@+id/morning_time"
+
+                tools:ignore="NotSibling" />
+
+            <TextView
+                android:id="@+id/morning_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="메뉴"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@+id/morning_time"
+                app:layout_constraintTop_toBottomOf="@+id/morning_time"
+
+                />
+
+            <EditText
+                android:id="@+id/morning_editMenu1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:hint="메뉴를 입력하세요"
+                app:layout_constraintLeft_toLeftOf="@+id/morning_menu"
+                app:layout_constraintTop_toBottomOf="@+id/morning_menu" />
+
+            <EditText
+                android:id="@+id/morning_editMenu2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="메뉴를 입력하세요"
+                app:layout_constraintLeft_toLeftOf="@+id/morning_editMenu1"
+                app:layout_constraintTop_toBottomOf="@+id/morning_editMenu1" />
+
+            <EditText
+                android:id="@+id/morning_editMenu3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="메뉴를 입력하세요"
+                app:layout_constraintLeft_toLeftOf="@+id/morning_editMenu2"
+                app:layout_constraintTop_toBottomOf="@+id/morning_editMenu2" />
+
+            <ImageView
+                android:id="@+id/morning_Gallery"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:srcCompat = "@drawable/gallery"
+                app:layout_constraintBottom_toTopOf="@+id/morning_plusDiet"
+                app:layout_constraintRight_toLeftOf="@+id/morning_Remove"
+                android:layout_marginRight="5dp" />
+
+            <ImageView
+                android:id="@+id/morning_Remove"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:srcCompat = "@drawable/remove"
+                app:layout_constraintBottom_toTopOf="@+id/morning_plusDiet"
+                app:layout_constraintRight_toRightOf="@+id/morning_plusDiet"
+                android:layout_marginRight="10dp"
+            android:padding="1dp"/>
+
+            <ImageButton
+                android:id="@+id/morning_plusDiet"
+                android:layout_width="150sp"
+                android:layout_height="150sp"
+                android:layout_marginLeft="20sp"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="@+id/morning_editMenu3"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toRightOf="@+id/morning_editMenu2"
+                app:layout_constraintStart_toEndOf="@+id/morning_editMenu2"
+                app:layout_constraintTop_toTopOf="@+id/morning_editMenu1"
+                app:srcCompat="@drawable/plus"
+                tools:layout_editor_absoluteY="313sp" />
+
+            <TextView
+                android:id="@+id/morning_MemoExercise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="메모"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@+id/morning_menu"
+                app:layout_constraintTop_toBottomOf="@+id/morning_plusDiet" />
+
+            <EditText
+                android:id="@+id/morning_editMenoDiet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:hint="오늘의 운동에 대해 자유롭게 메모하세요"
+                android:inputType="textMultiLine"
+                android:textSize="15sp"
+                app:layout_constraintLeft_toLeftOf="@+id/morning_MemoExercise"
+                app:layout_constraintStart_toStartOf="@+id/morning_MemoExercise"
+                app:layout_constraintTop_toBottomOf="@+id/morning_MemoExercise" />
+
+            <Button
+                android:id="@+id/morning_EnrollDiet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="40sp"
+                android:gravity="center_horizontal"
+                android:onClick="EnrollDiet"
+                android:text="등록"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/morning_editMenoDiet" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout> //아침
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/noon_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@+id/button"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/noon_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:text="시간22"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                tools:layout_editor_absoluteX="29dp"
+                tools:ignore="NotSibling" />
+
+            <EditText
+                android:id="@+id/noon_timenow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="32dp"
+                android:hint="현재 시간"
+                android:inputType="time"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/noon_time"
+                app:layout_constraintLeft_toRightOf="@+id/noon_time"
+
+                app:layout_constraintBaseline_toBaselineOf="@+id/noon_time"
+
+                tools:ignore="NotSibling" />
+
+            <TextView
+                android:id="@+id/noon_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="메뉴"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@+id/noon_time"
+                app:layout_constraintTop_toBottomOf="@+id/noon_time"
+
+                />
+
+            <EditText
+                android:id="@+id/noon_editMenu1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:hint="메뉴를 입력하세요"
+                app:layout_constraintLeft_toLeftOf="@+id/noon_menu"
+                app:layout_constraintTop_toBottomOf="@+id/noon_menu" />
+
+            <EditText
+                android:id="@+id/noon_editMenu2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="메뉴를 입력하세요"
+                app:layout_constraintLeft_toLeftOf="@+id/noon_editMenu1"
+                app:layout_constraintTop_toBottomOf="@+id/noon_editMenu1" />
+
+            <EditText
+                android:id="@+id/noon_editMenu3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="메뉴를 입력하세요"
+                app:layout_constraintLeft_toLeftOf="@+id/noon_editMenu2"
+                app:layout_constraintTop_toBottomOf="@+id/noon_editMenu2" />
+
+            <ImageView
+                android:id="@+id/noon_Gallery"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:srcCompat = "@drawable/gallery"
+                app:layout_constraintBottom_toTopOf="@+id/noon_plusDiet"
+                app:layout_constraintRight_toLeftOf="@+id/noon_Remove"
+                android:layout_marginRight="5dp" />
+
+            <ImageView
+                android:id="@+id/noon_Remove"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:srcCompat = "@drawable/remove"
+                app:layout_constraintBottom_toTopOf="@+id/noon_plusDiet"
+                app:layout_constraintRight_toRightOf="@+id/noon_plusDiet"
+                android:layout_marginRight="10dp"
+                android:padding="1dp"/>
+
+            <ImageButton
+
+                android:id="@+id/noon_plusDiet"
+                android:layout_width="150sp"
+                android:layout_height="150sp"
+                android:layout_marginLeft="20sp"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="@+id/noon_editMenu3"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toRightOf="@+id/noon_editMenu2"
+                app:layout_constraintStart_toEndOf="@+id/noon_editMenu2"
+                app:layout_constraintTop_toTopOf="@+id/noon_editMenu1"
+                app:srcCompat="@drawable/plus"
+                tools:layout_editor_absoluteY="313sp" />
+
+            <TextView
+                android:id="@+id/noon_MemoExercise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="메모"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@+id/noon_menu"
+                app:layout_constraintTop_toBottomOf="@+id/noon_plusDiet" />
+
+            <EditText
+                android:id="@+id/noon_editMenoDiet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:hint="오늘의 운동에 대해 자유롭게 메모하세요"
+                android:inputType="textMultiLine"
+                android:textSize="15sp"
+                app:layout_constraintLeft_toLeftOf="@+id/noon_MemoExercise"
+                app:layout_constraintStart_toStartOf="@+id/noon_MemoExercise"
+                app:layout_constraintTop_toBottomOf="@+id/noon_MemoExercise" />
+
+            <Button
+                android:id="@+id/noon_EnrollDiet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="40sp"
+                android:gravity="center_horizontal"
+                android:onClick="EnrollDiet"
+                android:text="등록"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/noon_editMenoDiet" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout> //점심
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/night_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@+id/button"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/night_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:text="시간33"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                tools:layout_editor_absoluteX="29dp"
+                tools:ignore="NotSibling" />
+
+            <EditText
+                android:id="@+id/night_timenow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="32dp"
+                android:hint="현재 시간"
+                android:inputType="time"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/night_time"
+                app:layout_constraintLeft_toRightOf="@+id/night_time"
+                app:layout_constraintBaseline_toBaselineOf="@+id/night_time"
+                tools:ignore="NotSibling" />
+
+            <TextView
+                android:id="@+id/night_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="메뉴"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@+id/night_time"
+                app:layout_constraintTop_toBottomOf="@+id/night_time"
+
+                />
+
+            <EditText
+                android:id="@+id/night_editMenu1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:hint="메뉴를 입력하세요"
+                app:layout_constraintLeft_toLeftOf="@+id/night_menu"
+                app:layout_constraintTop_toBottomOf="@+id/night_menu" />
+
+            <EditText
+                android:id="@+id/night_editMenu2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="메뉴를 입력하세요"
+                app:layout_constraintLeft_toLeftOf="@+id/night_editMenu1"
+                app:layout_constraintTop_toBottomOf="@+id/night_editMenu1" />
+
+            <EditText
+                android:id="@+id/night_editMenu3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="메뉴를 입력하세요"
+                app:layout_constraintLeft_toLeftOf="@+id/night_editMenu2"
+                app:layout_constraintTop_toBottomOf="@+id/night_editMenu2" />
+
+            <ImageView
+                android:id="@+id/night_Gallery"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:srcCompat = "@drawable/gallery"
+                app:layout_constraintBottom_toTopOf="@+id/night_plusDiet"
+                app:layout_constraintRight_toLeftOf="@+id/night_Remove"
+                android:layout_marginRight="5dp" />
+
+            <ImageView
+                android:id="@+id/night_Remove"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:srcCompat = "@drawable/remove"
+                app:layout_constraintBottom_toTopOf="@+id/night_plusDiet"
+                app:layout_constraintRight_toRightOf="@+id/night_plusDiet"
+                android:layout_marginRight="10dp"/>
+
+            <ImageButton
+
+                android:id="@+id/night_plusDiet"
+                android:layout_width="150sp"
+                android:layout_height="150sp"
+                android:layout_marginLeft="20sp"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="@+id/night_editMenu3"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toRightOf="@+id/night_editMenu2"
+                app:layout_constraintStart_toEndOf="@+id/night_editMenu2"
+                app:layout_constraintTop_toTopOf="@+id/night_editMenu1"
+                app:srcCompat="@drawable/plus"
+                tools:layout_editor_absoluteY="313sp" />
+
+            <TextView
+                android:id="@+id/night_MemoExercise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="5dp"
+                android:text="메모"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@+id/night_menu"
+                app:layout_constraintTop_toBottomOf="@+id/night_plusDiet" />
+
+            <EditText
+                android:id="@+id/night_editMenoDiet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="20sp"
+                android:hint="오늘의 운동에 대해 자유롭게 메모하세요"
+                android:inputType="textMultiLine"
+                android:textSize="15sp"
+                app:layout_constraintLeft_toLeftOf="@+id/night_MemoExercise"
+                app:layout_constraintStart_toStartOf="@+id/night_MemoExercise"
+                app:layout_constraintTop_toBottomOf="@+id/night_MemoExercise" />
+
+            <Button
+                android:id="@+id/night_EnrollDiet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="40sp"
+                android:gravity="center_horizontal"
+                android:onClick="EnrollDiet"
+                android:text="등록"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/night_editMenoDiet" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout> //저녁
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/snack_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@+id/button"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/snack_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:text="시간44"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                tools:layout_editor_absoluteX="29dp"
+                tools:ignore="NotSibling" />
+
+            <EditText
+                android:id="@+id/snack_timenow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="32dp"
+                android:hint="현재 시간"
+                android:inputType="time"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/snack_time"
+                app:layout_constraintLeft_toRightOf="@+id/snack_time"
+
+                app:layout_constraintBaseline_toBaselineOf="@+id/snack_time"
+
+                tools:ignore="NotSibling" />
+
+            <TextView
+                android:id="@+id/snack_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="메뉴"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@+id/snack_time"
+                app:layout_constraintTop_toBottomOf="@+id/snack_time"
+
+                />
+
+            <EditText
+                android:id="@+id/snack_editMenu1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:hint="메뉴를 입력하세요"
+                app:layout_constraintLeft_toLeftOf="@+id/snack_menu"
+                app:layout_constraintTop_toBottomOf="@+id/snack_menu" />
+
+            <EditText
+                android:id="@+id/snack_editMenu2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="메뉴를 입력하세요"
+                app:layout_constraintLeft_toLeftOf="@+id/snack_editMenu1"
+                app:layout_constraintTop_toBottomOf="@+id/snack_editMenu1" />
+
+            <EditText
+                android:id="@+id/snack_editMenu3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="메뉴를 입력하세요"
+                app:layout_constraintLeft_toLeftOf="@+id/snack_editMenu2"
+                app:layout_constraintTop_toBottomOf="@+id/snack_editMenu2" />
+
+            <ImageView
+                android:id="@+id/snack_Gallery"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:srcCompat = "@drawable/gallery"
+                app:layout_constraintBottom_toTopOf="@+id/snack_plusDiet"
+                app:layout_constraintRight_toLeftOf="@+id/snack_Remove"
+                android:layout_marginRight="5dp" />
+
+            <ImageView
+                android:id="@+id/snack_Remove"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:srcCompat = "@drawable/remove"
+                app:layout_constraintBottom_toTopOf="@+id/snack_plusDiet"
+                app:layout_constraintRight_toRightOf="@+id/snack_plusDiet"
+                android:layout_marginRight="10dp"/>
+
+            <ImageView
+
+                android:id="@+id/snack_plusDiet"
+                android:layout_width="150sp"
+                android:layout_height="150sp"
+                android:layout_marginLeft="20sp"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="@+id/snack_editMenu3"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toRightOf="@+id/snack_editMenu2"
+                app:layout_constraintStart_toEndOf="@+id/snack_editMenu2"
+                app:layout_constraintTop_toTopOf="@+id/snack_editMenu1"
+                app:srcCompat="@drawable/plus"
+                tools:layout_editor_absoluteY="313sp" />
+
+            <TextView
+                android:id="@+id/snack_MemoExercise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="메모"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@+id/snack_menu"
+                app:layout_constraintTop_toBottomOf="@+id/snack_plusDiet" />
+
+            <EditText
+                android:id="@+id/snack_editMenoDiet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20sp"
+                android:hint="오늘의 운동에 대해 자유롭게 메모하세요"
+                android:inputType="textMultiLine"
+                android:textSize="15sp"
+                app:layout_constraintLeft_toLeftOf="@+id/snack_MemoExercise"
+                app:layout_constraintStart_toStartOf="@+id/snack_MemoExercise"
+                app:layout_constraintTop_toBottomOf="@+id/snack_MemoExercise" />
+
+            <Button
+                android:id="@+id/snack_EnrollDiet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="40sp"
+                android:gravity="center_horizontal"
+                android:onClick="EnrollDiet"
+                android:text="등록"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/snack_editMenoDiet" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout> //간식
+
+
+    </FrameLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="칼로리가 궁금하면 클릭하세요! "
+                android:textColor="@color/black"/>
+
+            <ImageView
+                android:id="@+id/calorie"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/Lightgray"
+                android:onClick="calorie"
+                android:layout_marginLeft="8dp"
+                android:textColor="@color/black"
+                app:srcCompat="@drawable/noun_click_1159662"
+
+
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

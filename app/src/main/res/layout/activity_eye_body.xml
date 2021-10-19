@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="20sp"
+    android:layout_marginRight="20sp"
+    tools:context=".TodayEyeBody">
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+        android:scrollbarSize="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/TodayWeight"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </DatePicker>
+
+    <TextView
+        android:id="@+id/TodayWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10sp"
+        android:text="체중"
+        android:textSize="20sp"
+        android:textColor="@color/darkgray"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/edittTodayKg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittTodayKg" />
+
+    <EditText
+        android:id="@+id/edittTodayKg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20sp"
+        android:layout_marginTop="10sp"
+        android:hint="체중을 입력하세요"
+        android:inputType="number"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="@+id/TodayWeight"
+        app:layout_constraintRight_toLeftOf="@+id/kg"
+        app:layout_constraintTop_toBottomOf="@+id/TodayWeight"
+
+        />
+
+    <TextView
+        android:id="@+id/kg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5sp"
+        android:text="kg"
+        android:textSize="23sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edittTodayKg"
+        app:layout_constraintBottom_toBottomOf="@+id/edittTodayKg"
+        app:layout_constraintLeft_toRightOf="@+id/edittTodayKg" />
+
+    <TextView
+        android:id="@+id/picEyebody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25sp"
+        android:text="눈바디"
+        android:textSize="20sp"
+        android:textColor="@color/darkgray"
+        app:layout_constraintLeft_toLeftOf="@+id/TodayWeight"
+        app:layout_constraintTop_toBottomOf="@+id/edittTodayKg"
+        tools:layout_editor_absoluteY="253sp" />
+
+    <ImageView
+        android:id="@+id/EyeGallery"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat = "@drawable/gallery"
+        app:layout_constraintBottom_toBottomOf="@+id/picEyebody"
+        app:layout_constraintTop_toTopOf="@+id/picEyebody"
+        app:layout_constraintLeft_toRightOf="@+id/picEyebody"
+        android:layout_marginLeft="20dp"        />
+
+    <ImageView
+        android:id="@+id/EyeRemove"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat = "@drawable/remove"
+        app:layout_constraintBottom_toBottomOf="@+id/picEyebody"
+        app:layout_constraintTop_toTopOf="@+id/picEyebody"
+        app:layout_constraintLeft_toRightOf="@+id/EyeGallery"
+        android:layout_marginLeft="5dp"
+        android:padding="1dp"/>
+
+    <ImageView
+
+        android:id="@+id/plusEyebody"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+        android:layout_marginTop="10sp"
+        android:scaleType="fitCenter"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="@+id/picEyebody"
+        app:layout_constraintStart_toStartOf="@+id/picEyebody"
+        app:layout_constraintTop_toBottomOf="@+id/picEyebody"
+        app:srcCompat="@drawable/plus"
+        tools:layout_editor_absoluteY="313sp" />
+
+    <TextView
+        android:id="@+id/picInbody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20sp"
+        android:layout_marginBottom="10sp"
+        android:text="인바디"
+        android:textSize="20sp"
+        android:textColor="@color/darkgray"
+        app:layout_constraintBaseline_toBaselineOf="@+id/picEyebody"
+        app:layout_constraintStart_toEndOf="@+id/plusEyebody" />
+
+    <ImageView
+        android:id="@+id/InGallery"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat = "@drawable/gallery"
+        app:layout_constraintBottom_toBottomOf="@+id/picInbody"
+        app:layout_constraintTop_toTopOf="@+id/picInbody"
+        app:layout_constraintLeft_toRightOf="@+id/picInbody"
+        android:layout_marginLeft="20dp"        />
+
+    <ImageView
+        android:id="@+id/InRemove"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat = "@drawable/remove"
+        app:layout_constraintBottom_toBottomOf="@+id/picInbody"
+        app:layout_constraintTop_toTopOf="@+id/picInbody"
+        app:layout_constraintLeft_toRightOf="@+id/InGallery"
+        android:layout_marginLeft="5dp"
+        android:padding="1dp"/>
+
+    <ImageView
+        android:id="@+id/plusInbody"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+        android:layout_marginTop="10sp"
+        android:scaleType="fitCenter"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="@+id/picInbody"
+        app:layout_constraintStart_toStartOf="@+id/picInbody"
+        app:layout_constraintTop_toBottomOf="@+id/picInbody"
+        app:srcCompat="@drawable/plus"
+        tools:layout_editor_absoluteY="313sp" />
+
+    <TextView
+        android:id="@+id/MemoEyebody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30sp"
+        android:text="메모"
+        android:textSize="20sp"
+        android:textColor="@color/darkgray"
+        app:layout_constraintLeft_toLeftOf="@+id/picEyebody"
+        app:layout_constraintStart_toStartOf="@+id/picEyebody"
+        app:layout_constraintTop_toBottomOf="@+id/plusEyebody" />
+
+    <EditText
+        android:id="@+id/editMemoEyebody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="20sp"
+        android:hint="오늘의 눈바디에 대해 자유롭게 메모하세요"
+        android:inputType="textMultiLine"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="@+id/MemoEyebody"
+        app:layout_constraintStart_toStartOf="@+id/MemoEyebody"
+        app:layout_constraintTop_toBottomOf="@+id/MemoEyebody"
+        app:layout_constraintBottom_toTopOf="@+id/EnrollEyeBody"/>
+
+    <Button
+        android:id="@+id/EnrollEyeBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20sp"
+        android:gravity="center_horizontal"
+        android:text="등록"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

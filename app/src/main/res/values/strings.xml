@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="constraintlayout">ConstraintLayout</string>
+    <string name="StartDay">시작일</string>
+</resources>

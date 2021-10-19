@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".record"
+    android:layout_marginTop="100dp">
+
+
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="오늘의 세탁"
+        android:textColor="@color/darkgray"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/enroll"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/enroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60sp"
+        android:onClick="TodayEyeBody"
+        android:text="오늘의 눈바디"
+        android:textColor="@color/white"
+        app:backgroundTint="#078C80"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appName"
+      />
+
+    <Button
+        android:id="@+id/exercise"
+        android:onClick="TodayDiet"
+        android:text="오늘의 식단"
+
+        android:textColor="@color/white"
+        app:backgroundTint="#078C80"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enroll"
+        app:layout_constraintBottom_toTopOf="@+id/record"
+        />
+
+    <Button
+        android:id="@+id/record"
+        android:onClick="TodayExercise"
+        android:text="오늘의 운동"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50sp"
+        android:textColor="@color/white"
+        app:backgroundTint="#078C80"
+        app:layout_constraintTop_toBottomOf="@+id/exercise"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <ImageButton
+        android:id="@+id/BackButton"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/home"
+        app:layout_constraintDimensionRatio="1:1"
+        android:layout_marginBottom="30dp"
+
+        android:onClick="backMain"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
