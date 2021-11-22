@@ -6,19 +6,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.text.util.Linkify;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,8 +24,6 @@ import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -54,7 +48,6 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.ViewHolder> {
 
         Log.i("tag","oncreateviewholder");
         return new ViewHolder(view);
-
     }
 
     @SuppressLint("ResourceAsColor")
@@ -250,8 +243,8 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.ViewHolder> {
             super(itemView);
             view = itemView;
 
-            list_WhereEx = itemView.findViewById(R.id.list_whereEx);
-            list_Link = itemView.findViewById(R.id.list_Link);
+            list_WhereEx = itemView.findViewById(R.id.laundrytype_item);
+            list_Link = itemView.findViewById(R.id.laundrynum_item);
             list_image = itemView.findViewById(R.id.imageView);
             delete = itemView.findViewById(R.id.delete);
             edit = itemView.findViewById(R.id.edit);

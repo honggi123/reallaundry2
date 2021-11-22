@@ -7,6 +7,8 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.customer.MainActivity;
+
 public class record extends AppCompatActivity {
 
     @Override
@@ -34,7 +36,7 @@ public class record extends AppCompatActivity {
     }
 
     public void backMain(View view) {
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }

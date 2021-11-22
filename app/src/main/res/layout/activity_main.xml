@@ -7,7 +7,44 @@
     android:layout_marginLeft="30sp"
     android:layout_marginRight="30sp"
     android:layout_marginTop="10sp"
-    tools:context=".MainActivity">
+    tools:context=".customer.MainActivity">
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="맡기기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_laundrylist"
+        app:layout_constraintStart_toStartOf="@+id/btn_laundrylist"
+        app:layout_constraintTop_toBottomOf="@+id/btn_laundrylist" />
+
+    <ImageView
+        android:id="@+id/btn_laundrylist"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_cprofile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rclaundry_cutomer"
+        app:layout_constraintVertical_bias="0.151"
+        app:srcCompat="@drawable/pngegg" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="손님"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appName" />
 
     <TextView
         android:id="@+id/appName"
@@ -15,50 +52,46 @@
         android:layout_height="wrap_content"
         android:text="오늘의 세탁"
         android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/calendarView"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <CalendarView
-        android:id="@+id/calendarView"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rclaundry_cutomer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_cprofile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <ImageView
+        android:id="@+id/btn_cprofile"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_laundrylist"
+        app:srcCompat="@drawable/ic_baseline_person_24" />
+
+    <TextView
+        android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/exercise"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appName" />
-
-
-    <Button
-        android:id="@+id/exercise"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-
-        android:onClick="ExerciseRecord"
-        android:text="세탁물 등록"
-
-        android:textColor="@color/white"
-        app:backgroundTint="#078C80"
+        android:layout_marginBottom="16dp"
+        android:text="개인정보"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/enroll"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/enroll"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-
-        android:onClick="enroll"
-        android:text="사용자 정보"
-        android:textColor="@color/white"
-        app:backgroundTint="#078C80"
-        app:layout_constraintBottom_toBottomOf="@+id/exercise"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/exercise"
-        app:layout_constraintTop_toTopOf="@+id/exercise"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_cprofile"
+        app:layout_constraintStart_toStartOf="@+id/btn_cprofile" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

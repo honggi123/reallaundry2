@@ -52,7 +52,7 @@
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/list_whereEx"
+                        android:id="@+id/laundrytype_item"
                         android:layout_width="118dp"
                         android:layout_height="match_parent"
                         android:text=" 자주맡기는옷"
@@ -73,7 +73,7 @@
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/list_Link"
+                        android:id="@+id/laundrynum_item"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="링크"

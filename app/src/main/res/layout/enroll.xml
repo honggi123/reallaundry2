@@ -9,164 +9,133 @@
     tools:context=".Enroll">
 
     <TextView
+        android:id="@+id/weight"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="완료 된 세탁물 수"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintLeft_toLeftOf="@id/Height"
+        app:layout_constraintStart_toStartOf="@+id/profileinglaundry_normal"
+        app:layout_constraintTop_toBottomOf="@+id/profileinglaundry_normal" />
+
+    <TextView
         android:id="@+id/enroll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="사용자 정보 등록"
+        android:text="사용자 정보 "
         android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <TextView
         android:id="@+id/StartDay"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="20dp"
-        android:text="이름"
-        android:textSize="20sp"
+        android:text="아이디"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@id/Height"
-        app:layout_constraintRight_toLeftOf="@id/editStartDay"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enroll" />
-
-    <EditText
-        android:id="@+id/editStartDay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:hint="ex) YYMMDD"
-        android:inputType="date"
-        app:layout_constraintBottom_toBottomOf="@+id/StartDay"
-        app:layout_constraintStart_toEndOf="@+id/StartDay"
-        app:layout_constraintTop_toBottomOf="@+id/enroll"
-        app:layout_constraintTop_toTopOf="@+id/StartDay" />
 
     <TextView
         android:id="@+id/Height"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="연락처"
-        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:text="유저 유형"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
         app:layout_constraintLeft_toLeftOf="@id/StartDay"
         app:layout_constraintRight_toRightOf="@id/StartDay"
-        app:layout_constraintTop_toBottomOf="@+id/StartDay" />
-
-    <EditText
-        android:id="@+id/editHeight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="키를 입력하세요"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="@+id/Height"
-        app:layout_constraintLeft_toLeftOf="@+id/editStartDay"
-        app:layout_constraintTop_toTopOf="@+id/Height" />
+        app:layout_constraintTop_toBottomOf="@+id/profileid_normal" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/profileid_normal"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="cm"
-        android:textSize="20dp"
-        android:layout_marginLeft="5dp"
-        app:layout_constraintLeft_toRightOf="@id/editHeight"
-        app:layout_constraintBottom_toBottomOf="@+id/Height"
-        />
+        android:layout_marginTop="8dp"
+        android:text="..."
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintLeft_toLeftOf="@id/StartDay"
+        app:layout_constraintRight_toRightOf="@id/StartDay"
+        app:layout_constraintStart_toStartOf="@+id/StartDay"
+        app:layout_constraintTop_toBottomOf="@+id/StartDay" />
+
+    <TextView
+        android:id="@+id/profiletype_normal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="..."
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintRight_toRightOf="@id/StartDay"
+        app:layout_constraintStart_toStartOf="@+id/Height"
+        app:layout_constraintTop_toBottomOf="@+id/Height" />
+
+    <TextView
+        android:id="@+id/profileinglaundry_normal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="..."
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintLeft_toLeftOf="@id/StartDay"
+        app:layout_constraintRight_toRightOf="@id/StartDay"
+        app:layout_constraintStart_toStartOf="@+id/profiletype_normal"
+        app:layout_constraintTop_toBottomOf="@+id/Weight" />
+
+    <TextView
+        android:id="@+id/profileendnum_normal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="..."
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintLeft_toLeftOf="@id/StartDay"
+        app:layout_constraintRight_toRightOf="@id/StartDay"
+        app:layout_constraintStart_toStartOf="@+id/weight"
+        app:layout_constraintTop_toBottomOf="@+id/weight" />
 
     <TextView
         android:id="@+id/Weight"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="자주가는 세탁소"
-        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:text="현재 세탁 중인 세탁물 수"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
         app:layout_constraintLeft_toLeftOf="@id/Height"
-        app:layout_constraintRight_toRightOf="@id/Height"
-        app:layout_constraintTop_toBottomOf="@+id/Height" />
-
-    <EditText
-        android:id="@+id/editWeight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="체중를 입력하세요"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="@+id/Weight"
-        app:layout_constraintLeft_toLeftOf="@+id/editStartDay"
-        app:layout_constraintTop_toTopOf="@+id/Weight" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="kg"
-        android:textSize="20dp"
-        android:layout_marginLeft="5dp"
-        app:layout_constraintLeft_toRightOf="@id/editWeight"
-        app:layout_constraintBottom_toBottomOf="@+id/Weight"
-        />
-
-    <TextView
-        android:id="@+id/AimWeight"
-        android:text="목표 체중"
-        android:textSize="20sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/Weight"
-        app:layout_constraintLeft_toLeftOf="@id/Weight"
-        app:layout_constraintRight_toRightOf="@id/Weight" />
-
-    <EditText
-        android:id="@+id/editAimWeight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="목표 체중을 입력하세요"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="@+id/AimWeight"
-        app:layout_constraintLeft_toLeftOf="@+id/editStartDay"
-        app:layout_constraintTop_toTopOf="@+id/AimWeight" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="kg"
-        android:textSize="20dp"
-        android:layout_marginLeft="5dp"
-        app:layout_constraintLeft_toRightOf="@id/editAimWeight"
-        app:layout_constraintBottom_toBottomOf="@+id/AimWeight"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/profiletype_normal" />
 
 
-    <Button
-        android:id="@+id/EnrollButton"
-        android:text="등록"
-        app:layout_constraintBottom_toTopOf="@+id/home"
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginEnd="147dp"
+        android:layout_marginRight="147dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editAimWeight"
-        android:layout_marginTop="220dp"
-        android:layout_marginBottom="10dp"
-        android:gravity="center_horizontal"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_person_24" /><![CDATA[
         //android:onClick="enrolldata"/>
 
 
-    <ImageButton
-        android:id="@+id/home"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        app:srcCompat="@drawable/home"
-        android:scaleType="fitCenter"
-        android:layout_marginBottom="120dp"
-        app:layout_constraintTop_toBottomOf="@+id/EnrollButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:onClick="backMain"/>
-
-<!--    <TextView-->
+    ]]><!--    <TextView-->
 <!--        android:id="@+id/textView"-->
 <!--        android:layout_width="74dp"-->
 <!--        android:layout_height="41dp"-->

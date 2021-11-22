@@ -1,36 +1,42 @@
-package com.example.myapplication;
+package com.example.myapplication.customer;
 //package com.example.myrecyclerviewex;
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Dialog;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.LinkAdapter;
+import com.example.myapplication.LinkItem;
+import com.example.myapplication.R;
+import com.example.myapplication.RoutineAdapter;
+import com.example.myapplication.RoutineItem;
+import com.example.myapplication.User;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class EnrollExercise extends AppCompatActivity {
 
@@ -41,7 +47,7 @@ public class EnrollExercise extends AppCompatActivity {
 
     private Button Link;
     private Button Routine;
-
+    private Button but_enroll2;
     private EditText routineWhereEdt, SecondEdt,SetEdt;
     private Button but_routine;
     private RecyclerView routine_rv;
@@ -58,21 +64,24 @@ public class EnrollExercise extends AppCompatActivity {
     private ArrayList<LinkItem> linkItemArrayList;
 
     private ImageView youtube;
-
-
+    User user;
+    
+    private DatabaseReference mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState
         );
         setContentView(R.layout.activity_enroll_exercise);
-
+        user = (User) getIntent().getSerializableExtra("user");
+        
         link_frame = (RelativeLayout) findViewById(R.id.LinkButton);
         routin_frame = (RelativeLayout)findViewById(R.id.RoutineButton);
 
         Routine =findViewById(R.id.Routine);
         Link = findViewById(R.id.Link);
+        but_enroll2 = findViewById(R.id.but_enroll2);
 
-
+        mDatabase = FirebaseDatabase.getInstance("https://laundry-9a9bc-default-rtdb.firebaseio.com/").getReference();
 
         View.OnClickListener OnClickListener = new View.OnClickListener() {
             @Override
@@ -97,6 +106,7 @@ public class EnrollExercise extends AppCompatActivity {
             }
         };
 
+
         Link.setOnClickListener(OnClickListener);
         Routine.setOnClickListener(OnClickListener);
 
@@ -105,7 +115,8 @@ public class EnrollExercise extends AppCompatActivity {
         SecondEdt = findViewById(R.id.editSecond);
         SetEdt = findViewById(R.id.editSet);
 
-        loadRoutineData();
+        routineItemArrayList = new ArrayList<>();
+
         buildRoutineRecyclerView();
 
         but_routine = findViewById(R.id.but_routine);
@@ -115,7 +126,6 @@ public class EnrollExercise extends AppCompatActivity {
 
                 routineItemArrayList.add(new RoutineItem(routineWhereEdt.getText().toString(), SecondEdt.getText().toString(),SetEdt.getText().toString()));
                 routineAdapter.notifyItemInserted(routineItemArrayList.size());
-                saveRoutineData();
 
                 routineWhereEdt.setText("");
                 SecondEdt.setText("");
@@ -124,12 +134,20 @@ public class EnrollExercise extends AppCompatActivity {
             }
         });
 
+        but_enroll2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveLinkData();
+                writeNewlaundrys();
+            }
+        });
+
         LinkEdt = findViewById(R.id.editLink);
         armcheck = (RadioButton) findViewById(R.id.armCheck);
         legcheck = (RadioButton) findViewById(R.id.legCheck);
         musclecheck = (RadioButton) findViewById(R.id.muscleCheck);
 
-        link_rv = findViewById(R.id.link_rv);
+        link_rv = findViewById(R.id.rcendlaundry_boss);
         but_enroll = findViewById(R.id.but_enroll);
 
         loadLinkData();
@@ -174,13 +192,85 @@ public class EnrollExercise extends AppCompatActivity {
 
                 linkItemArrayList.add(new LinkItem(WhereEx,LinkEdt.getText().toString(),image));
                 linkAdapter.notifyItemInserted(linkItemArrayList.size());
-                saveLinkData();
 
                 LinkEdt.setText("");
 
             }
         });
     }
+
+    @SuppressLint("LongLogTag")
+    private void writeNewlaundrys() {
+        String shopname = null;
+        ArrayList<Laundry> laundryArrayList = new ArrayList<>();
+
+        Log.e("routineItemArrayList",routineItemArrayList.size()+"");
+        for (int i = 0; i <= linkItemArrayList.size()-1; i++){
+                    if(linkItemArrayList.get(i).getsel()){
+                        shopname = linkItemArrayList.get(i).getList_Link();
+                    }
+        }
+
+        for (int i = 0; i <= routineItemArrayList.size()-1; i++){
+                    if(routineItemArrayList.get(i).getsel()){
+                        Log.e("routineItemArrayListgetsel",i+"");
+
+                        Laundry laundry = new Laundry();
+                        laundry.setWantdate(routineItemArrayList.get(i).getroutine_second());
+                        laundry.setType(routineItemArrayList.get(i).getroutine_WhereEx());
+                        laundry.setNum(Integer.parseInt(routineItemArrayList.get(i).getroutine_set()));
+                        laundry.setFromid(user.getId());
+                        laundry.setToshop(shopname);
+                        laundry.setStatus(0);
+                        laundry.setFfromid(user.getFid());
+                        laundryArrayList.add(laundry);
+                    }
+        }
+
+        for(int i=0;i<=laundryArrayList.size()-1;i++){
+            Log.e("laundryArrayList",laundryArrayList.get(i).type);
+            String ran = random(6);
+            laundryArrayList.get(i).setLid(ran);
+            mDatabase.child("BossLaundry").child(shopname).child("receive").child(ran).setValue(laundryArrayList.get(i))
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            // Write was successful!
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            // Write failed
+                        }
+                    });
+
+            mDatabase.child("CustomerLaundry").child(user.getFid()).child("leave").child(ran).setValue(laundryArrayList.get(i))
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            // Write was successful!
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            // Write failed
+                        }
+                    });
+        }
+
+        Log.e("user.getFid()",user.getFid());
+
+        for(int i=0;i<=laundryArrayList.size()-1;i++){
+            Log.e("laundryArrayList",laundryArrayList.get(i).type);
+
+        }
+
+        Toast.makeText(this, "목록에 추가되었습니다. ", Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
 
     private void buildRoutineRecyclerView() {
         routineAdapter = new RoutineAdapter(routineItemArrayList,EnrollExercise.this);
@@ -190,40 +280,15 @@ public class EnrollExercise extends AppCompatActivity {
         routine_rv.setAdapter(routineAdapter);
     }
 
-
-    private void loadRoutineData() {
-        SharedPreferences sharedPreferences = getSharedPreferences("routine_shared", MODE_PRIVATE);
-
-        Gson gson = new Gson();
-        int routine_list = sharedPreferences.getInt("routine_list",0);
-        String json = sharedPreferences.getString("routine"+routine_list, null);
-
-        Type type = new TypeToken<ArrayList<RoutineItem>>() {}.getType();
-
-        routineItemArrayList = gson.fromJson(json, type);
-        if (routineItemArrayList == null) {
-
-            routineItemArrayList = new ArrayList<>();
-        }
-        System.out.println(json);
+    public static String random(int len) {
+        String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijk"
+                +"lmnopqrstuvwxyz";
+        Random rnd = new Random();
+        StringBuilder sb = new StringBuilder(len);
+        for (int i = 0; i < len; i++)
+            sb.append(chars.charAt(rnd.nextInt(chars.length())));
+        return sb.toString();
     }
-
-        private void saveRoutineData() {
-
-            SharedPreferences sharedPreferences = getSharedPreferences("routine_shared", MODE_PRIVATE);
-
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-
-            int routine_list = sharedPreferences.getInt("routine_list",0);
-            Gson gson = new Gson();
-            String json = gson.toJson(routineItemArrayList);
-
-            editor.putString("routine"+routine_list, json);
-            editor.apply();
-            System.out.println(json);
-
-            Toast.makeText(this, "목록에 추가되었습니다. ", Toast.LENGTH_SHORT).show();
-        }
 
 
     private void buildLinkRecyclerView() {

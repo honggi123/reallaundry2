@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_alignParentBottom="true"
     android:background="#02FFFFFF"
-    tools:context=".EnrollExercise">
+    tools:context=".customer.EnrollExercise">
 
 
     <LinearLayout
@@ -100,7 +100,7 @@
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
 
-                        android:hint="ex)2021/00/00"
+                        android:hint="ex)20211200"
                         android:inputType="number"
                         android:textSize="16dp" />
 
@@ -267,7 +267,7 @@
                         app:backgroundTint="#078C80" />
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/link_rv"
+                        android:id="@+id/rcendlaundry_boss"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
                         android:layout_marginTop="20dp"

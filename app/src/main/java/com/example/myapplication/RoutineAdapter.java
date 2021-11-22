@@ -203,11 +203,16 @@ public class RoutineAdapter extends RecyclerView.Adapter<RoutineAdapter.ViewHold
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    for(int i = 0; i<= RoutineItems.size()-1;i++){
-                        RoutineItems.get(i).setSel(false);
+                    if(RoutineItems.get(getAdapterPosition()).getsel()){
+                        selposition = getAdapterPosition();
+                        RoutineItems.get(getAdapterPosition()).setSel(false);
+
+                    }else{
+                        selposition = getAdapterPosition();
+                        RoutineItems.get(getAdapterPosition()).setSel(true);
+                        Log.e("sel","true");
                     }
-                    selposition = getAdapterPosition();
-                    RoutineItems.get(getAdapterPosition()).setSel(true);
+
                     notifyDataSetChanged();
                 }
             });

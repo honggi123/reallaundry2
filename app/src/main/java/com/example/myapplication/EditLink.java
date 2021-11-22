@@ -5,9 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+
+import com.example.myapplication.customer.EnrollExercise;
 
 public class EditLink extends AppCompatActivity {
 

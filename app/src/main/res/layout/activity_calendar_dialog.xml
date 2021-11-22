@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="440dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:layout_width="440dp"
+        android:layout_height="600dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true">
 
@@ -22,22 +21,9 @@
             android:hint="선택 날짜"
             android:textColor="@color/black"
             android:textSize="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/Datekg"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:id="@+id/Datekg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="12dp"
-            android:hint="세탁소"
-            android:text="세탁소"
-            android:textSize="20dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/whenDate" />
 
 
         <TextView
@@ -45,11 +31,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="15dp"
-            android:text="맡긴 세탁물"
+            android:layout_marginTop="16dp"
+            android:text="맡긴 세탁소"
             android:textSize="20dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/Datekg"
+            app:layout_constraintTop_toBottomOf="@+id/whenDate"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -57,25 +43,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
             android:hint="맡긴 세탁물이 없습니다."
             android:textSize="18dp"
             app:layout_constraintBaseline_toBaselineOf="@+id/DateExercise"
             app:layout_constraintLeft_toRightOf="@+id/DateExercise"
-            app:layout_constraintTop_toBottomOf="@id/Datekg"
             tools:ignore="MissingConstraints" />
 
-        <Button
-            android:id="@+id/BackButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/Lightgray"
-            android:text="메인으로"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            tools:ignore="MissingConstraints" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rc_calenderlaundry"
+            android:layout_width="440dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/DateExercise" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
