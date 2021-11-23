@@ -137,7 +137,7 @@ public class LeaveClothAdapter extends RecyclerView.Adapter<LeaveClothAdapter.Vi
 
                                     laundryref2.child("leave").child(arr_laundry.get(position).getLid()).setValue(null);
 
-                                    arr_laundry.remove(position);
+
                                     notifyDataSetChanged();
 
                                     dialog.dismiss();

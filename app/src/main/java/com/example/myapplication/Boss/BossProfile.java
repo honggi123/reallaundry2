@@ -56,7 +56,7 @@ public class BossProfile extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance("https://laundry-9a9bc-default-rtdb.firebaseio.com/").getReference(); // 파이어베이스 realtime database 에서 정보 가져오기
         DatabaseReference laundryref = mDatabase.child("BossLaundry").child(user.getShopname()).child("endreceive");
-        laundryref.addListenerForSingleValueEvent(new ValueEventListener() {
+        laundryref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 HashMap hashMap = (HashMap) dataSnapshot.getValue();

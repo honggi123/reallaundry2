@@ -224,6 +224,7 @@ public class EnrollExercise extends AppCompatActivity {
                         laundry.setStatus(0);
                         laundry.setFfromid(user.getFid());
                         laundryArrayList.add(laundry);
+
                     }
         }
 

@@ -157,7 +157,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 */
+        loadLinkData();
+        loadRoutineData();
+        GetLaundry();
 
+        leaveClothAdapter.setArr_laundry(arr_leavelaundry);
+        // 어댑터 추가
+        recyclerView.setAdapter(leaveClothAdapter);
     }
 
     String readWeight(String fName) {
@@ -218,13 +224,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        loadLinkData();
-        loadRoutineData();
-        GetLaundry();
 
-        leaveClothAdapter.setArr_laundry(arr_leavelaundry);
-        // 어댑터 추가
-        recyclerView.setAdapter(leaveClothAdapter);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
@@ -238,9 +238,6 @@ public class MainActivity extends AppCompatActivity {
                 // age.setText(String.valueOf(age1));
             }
         }
-
-
-
     }
 
 
@@ -296,12 +293,13 @@ public class MainActivity extends AppCompatActivity {
         arr_leavelaundry = new ArrayList<>();
         mDatabase = FirebaseDatabase.getInstance("https://laundry-9a9bc-default-rtdb.firebaseio.com/").getReference(); // 파이어베이스 realtime database 에서 정보 가져오기
         DatabaseReference laundryref = mDatabase.child("CustomerLaundry").child(user.getFid()).child("leave");
-        laundryref.addListenerForSingleValueEvent(new ValueEventListener() {
+        laundryref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                HashMap hashMap = (HashMap) dataSnapshot.getValue();
+                Log.e("onDataChange","onDataChange");
+                arr_leavelaundry.clear();
                if(hashMap == null){
-
                }else{
                    Log.e("hashmap",hashMap.toString());
                    Iterator<String> keys = hashMap.keySet().iterator();
@@ -311,6 +309,7 @@ public class MainActivity extends AppCompatActivity {
                        laundryref2.addListenerForSingleValueEvent(new ValueEventListener() {
                            @Override
                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                                Laundry laundry = dataSnapshot.getValue(Laundry.class);
                                Log.e("laundry",laundry.type);
                                arr_leavelaundry.add(laundry);
@@ -325,7 +324,7 @@ public class MainActivity extends AppCompatActivity {
                        });
                    }
                }
-
+                leaveClothAdapter.notifyDataSetChanged();
             }
 
             @Override

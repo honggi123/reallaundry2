@@ -113,31 +113,37 @@ public class BossMainActivity extends AppCompatActivity {
         arr_leavelaundry = new ArrayList<>();
         mDatabase = FirebaseDatabase.getInstance("https://laundry-9a9bc-default-rtdb.firebaseio.com/").getReference(); // 파이어베이스 realtime database 에서 정보 가져오기
         DatabaseReference laundryref = mDatabase.child("BossLaundry").child(user.getShopname()).child("receive");
-        laundryref.addListenerForSingleValueEvent(new ValueEventListener() {
+        laundryref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 HashMap hashMap = (HashMap) dataSnapshot.getValue();
-                Log.e("hashmap",hashMap.toString());
-                Iterator<String> keys = hashMap.keySet().iterator();
-                while (keys.hasNext()){
-                    String key = keys.next();
-                    DatabaseReference laundryref2 = mDatabase.child("BossLaundry").child(user.getShopname()).child("receive").child(key);
-                    laundryref2.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            Laundry laundry = dataSnapshot.getValue(Laundry.class);
-                            arr_leavelaundry.add(laundry);
-                            laundryClothAdapter.notifyDataSetChanged();
+                arr_leavelaundry.clear();
+                if(hashMap== null){
+                }else{
+                    Iterator<String> keys = hashMap.keySet().iterator();
 
-                        }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                    while (keys.hasNext()){
+                        String key = keys.next();
+                        DatabaseReference laundryref2 = mDatabase.child("BossLaundry").child(user.getShopname()).child("receive").child(key);
+                        laundryref2.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                Laundry laundry = dataSnapshot.getValue(Laundry.class);
+                                arr_leavelaundry.add(laundry);
+                                laundryClothAdapter.notifyDataSetChanged();
 
-                        }
-                    });
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+                    }
                 }
 
+            laundryClothAdapter.notifyDataSetChanged();
 
             }
 

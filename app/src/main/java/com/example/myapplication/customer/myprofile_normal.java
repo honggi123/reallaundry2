@@ -98,14 +98,17 @@ public class myprofile_normal extends AppCompatActivity{
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 HashMap hashMap = (HashMap) dataSnapshot.getValue();
-                Log.e("hashmap",hashMap.toString());
-                Iterator<String> keys = hashMap.keySet().iterator();
-                while (keys.hasNext()) {
-                    keys.next();
-                    Log.e("hasNext", "hasNext");
-                    ingnum++;
+                if(hashMap != null){
+                    Log.e("hashmap",hashMap.toString());
+                    Iterator<String> keys = hashMap.keySet().iterator();
+                    while (keys.hasNext()) {
+                        keys.next();
+                        Log.e("hasNext", "hasNext");
+                        ingnum++;
+                    }
+                    profileing_normal.setText(ingnum+" 벌");
                 }
-                profileing_normal.setText(ingnum+" 벌");
+
             }
 
             @Override
